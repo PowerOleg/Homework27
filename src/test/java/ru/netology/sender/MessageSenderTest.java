@@ -27,7 +27,7 @@ public class MessageSenderTest {
         localizationService = Mockito.mock(LocalizationService.class);
     }
     @Test
-    public void testMessageSenderRusMockPositive() {
+    public void testSendRusMockPositive() {
         final String expected = "Добро пожаловать";
 
         given(geoService.byIp(Mockito.anyString())).willReturn(new Location("Moscow", Country.RUSSIA, null, 0));
@@ -41,7 +41,7 @@ public class MessageSenderTest {
     }
 
     @Test
-    public void testMessageSenderEngMockPositive() {
+    public void testSendEngMockPositive() {
         final String expected = "Welcome";
 
         given(geoService.byIp(Mockito.anyString())).willReturn(new Location("New York", Country.USA, null,  0));
