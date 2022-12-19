@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Maven template
+geo-service.iml
 target/
 pom.xml.tag
 pom.xml.releaseBackup
