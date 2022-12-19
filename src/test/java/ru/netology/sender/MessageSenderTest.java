@@ -1,37 +1,31 @@
 package ru.netology.sender;
 
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import ru.netology.entity.Country;
 import ru.netology.entity.Location;
 import ru.netology.geo.GeoService;
-import ru.netology.geo.GeoServiceImpl;
 import ru.netology.i18n.LocalizationService;
-import ru.netology.i18n.LocalizationServiceImpl;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 import static org.mockito.BDDMockito.given;
 
 public class MessageSenderTest {
-    GeoService geoService;
-    LocalizationService localizationService;
+    private GeoService geoService;
+    private LocalizationService localizationService;
+
     @BeforeEach
-        public void initialization() {
+    public void initialization() {
         geoService = Mockito.mock(GeoService.class);
         localizationService = Mockito.mock(LocalizationService.class);
     }
-
-
-
     @Test
     public void testMessageSenderRusMockPositive() {
         final String expected = "Добро пожаловать";
