@@ -7,11 +7,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import ru.netology.entity.Country;
-import ru.netology.entity.Location;
 
 public class GeoServiceTest {
     GeoService geoService;
-
     @BeforeEach
     public void init() {
         geoService = new GeoServiceImpl();
@@ -52,5 +50,4 @@ public class GeoServiceTest {
         Assertions.assertNull(resultCountry);
         Assertions.assertNull(resultCity);
     }
-
 }

@@ -9,11 +9,8 @@ import ru.netology.entity.Location;
 import ru.netology.geo.GeoService;
 import ru.netology.i18n.LocalizationService;
 
-
-
 import java.util.HashMap;
 import java.util.Map;
-
 
 import static org.mockito.BDDMockito.given;
 
@@ -26,10 +23,10 @@ public class MessageSenderTest {
         geoService = Mockito.mock(GeoService.class);
         localizationService = Mockito.mock(LocalizationService.class);
     }
+
     @Test
     public void testSendRusMockPositive() {
         final String expected = "Добро пожаловать";
-
         given(geoService.byIp(Mockito.anyString())).willReturn(new Location("Moscow", Country.RUSSIA, null, 0));
         given(localizationService.locale(Country.RUSSIA)).willReturn(expected);
         MessageSender messageSender = new MessageSenderImpl(geoService, localizationService);
@@ -43,8 +40,7 @@ public class MessageSenderTest {
     @Test
     public void testSendEngMockPositive() {
         final String expected = "Welcome";
-
-        given(geoService.byIp(Mockito.anyString())).willReturn(new Location("New York", Country.USA, null,  0));
+        given(geoService.byIp(Mockito.anyString())).willReturn(new Location("New York", Country.USA, null, 0));
         given(localizationService.locale(Country.USA)).willReturn(expected);
         MessageSender messageSender = new MessageSenderImpl(geoService, localizationService);
 
@@ -53,5 +49,4 @@ public class MessageSenderTest {
         String result = messageSender.send(headers);
         Assertions.assertEquals(expected, result);
     }
-
 }
