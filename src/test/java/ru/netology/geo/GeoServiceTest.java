@@ -22,7 +22,6 @@ public class GeoServiceTest {
     public void testByIpUsaPositive(String argument) {
         String expectedCity = "New York";
         Country expectedCountry = Country.USA;
-//        Location expected = new Location("New York", Country.USA, null,  0);
 
         Country resultCountry = geoService.byIp(argument).getCountry();
         String resultCity = geoService.byIp(argument).getCity();
@@ -36,7 +35,6 @@ public class GeoServiceTest {
     public void testByIpRusPositive(String argument) {
         String expectedCity = "Moscow";
         Country expectedCountry = Country.RUSSIA;
-//        Location expected = new Location("Moscow", Country.RUSSIA, "Lenina", 15);
 
         Country resultCountry = geoService.byIp(argument).getCountry();
         String resultCity = geoService.byIp(argument).getCity();
@@ -44,17 +42,15 @@ public class GeoServiceTest {
         Assertions.assertEquals(expectedCountry, resultCountry);
         Assertions.assertEquals(expectedCity, resultCity);
     }
-//
-//    @ValueSource(strings = {"127.0.0.1"})
 
-//        String expected3 = LOCALHOST;
-//Location expected4 = new Location(null, null, null, 0);
+    @Test
+    public void testByIpLocalhostPositive() {
+        String argument = "127.0.0.1";
+        Country resultCountry = geoService.byIp(argument).getCountry();
+        String resultCity = geoService.byIp(argument).getCity();
 
-//
-//    Location expected7 = new Location("Moscow", Country.RUSSIA, null, 0);
+        Assertions.assertNull(resultCountry);
+        Assertions.assertNull(resultCity);
+    }
+
 }
-
-
-
-
-//        Location expected6 = new Location("New York", Country.USA, " 10th Avenue", 32);
